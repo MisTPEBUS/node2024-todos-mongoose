@@ -77,8 +77,9 @@ const reqListener = async (req, res) => {
   else if (req.url.startsWith('/post/') && req.method == 'DELETE') {
     try {
       const id = req.url.split('/').pop();
-      const Post  = await Post.findByIdAndDelete(id);
-      successHandle(res,200,"刪除成功",id);
+      console.log('id',id)
+      const post  = await Post.findByIdAndDelete(id);
+      successHandle(res,200,`${id}刪除成功`,post);
     }
     catch (err) {
       errorHandle(res, 400, err.message);
