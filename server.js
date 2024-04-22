@@ -49,7 +49,7 @@ const reqListener = async (req, res) => {
     req.on('end',async () => {
       try {
         const newPost = await Post.create(JSON.parse(body));
-        successHandle(res,200,"讀取成功",newPost);
+        successHandle(res,200,"新增成功",newPost);
       } catch (err) {
         errorHandle(res, 400, err.message);
       }
